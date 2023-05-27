@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Todo list</h1>
+    <div id="app">
+        <div>
+            <input id="todo-text-input" onkeyup="inputChanged(event)"/>
+            <button id="button-add" class="type_2" onclick = addTodo()>Add</button>
+            <button id="button-remove-all" class="type_2" onclick = removeAll()>Remove all</button>
+            <button id="toggle-show" class="type_2" onclick = toggleShow()>Hide completed</button>
+        </div>
+        <div id="todo-list"></div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>

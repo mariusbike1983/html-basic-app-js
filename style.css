@@ -1,0 +1,46 @@
+.loading {
+    padding: 3px;
+    background-color: bisque;        
+}
+
+#todo-list {
+    margin-top: 10px;
+    padding: 2px;
+    background-color: lightblue;
+    border: 1px solid slategray;
+    border-radius: 5px;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+#button-async {
+    background-color: orange;
+}
+
+button.type_2 {
+    background-color: yellow;
+}
+
+button.type_1 {
+    background-color: red;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: lightgreen;
+    margin: 5px;
+    padding: 2px;
+    justify-content: space-between;
+
+    &.is-completed {
+        background-color: rgba(144, 238, 144, 0.2);
+        > span {
+            text-decoration: line-through;
+        }
+    }
+}
