@@ -11,12 +11,12 @@ window.onload = function() {
 
 function inputChanged(e) {
     if (e.key === "Enter") {
-        addTodo();
+        createNewTodoItem();
     }
-    document.getElementById("button-add").disabled = _getInputElement().value.length ===0;
+    document.getElementById("button-add").disabled = _getInputElement().value.length === 0;
 }
 
-function addTodo() {
+function createNewTodoItem() {
     const itemText = _getInputElement().value;
     const newItem = _createNewModelItem(itemText);
     window.todos.push(newItem);
@@ -25,7 +25,7 @@ function addTodo() {
     _updateListUi();
 }
 
-function toogleItem(itemId) {
+function updateItemState(itemId) {
     const item = window.todos.find(function(todo) { 
         return todo.id === itemId;
     });
@@ -39,7 +39,7 @@ function toogleItem(itemId) {
     _updateListUi();
 }
 
-function removeAll() {
+function deleteAllItems() {
     const todolist = _getTodoList();
     while(window.todos.length > 0) {
         const itemModel = window.todos.pop();
@@ -48,7 +48,7 @@ function removeAll() {
     _renderTodoList();
 }
 
-function removeItem(itemId) {
+function deleteItem(itemId) {
     const ndx = window.todos.findIndex(function(todo) {
         return todo.id === itemId;
     });
@@ -152,7 +152,7 @@ function _renderTodoItem(itemModel) {
     check.type="checkbox";
     check.checked = itemModel.completed;
     check.onclick = function() {
-        toogleItem(itemModel.id);
+        updateItemState(itemModel.id);
     }
     container.appendChild(check);
 
@@ -166,7 +166,7 @@ function _renderTodoItem(itemModel) {
     itemButton.innerHTML = "-";
     itemButton.classList.add("type_1");
     itemButton.onclick = function() {
-        removeItem(itemModel.id)
+        deleteItem(itemModel.id)
     };
     item.appendChild(itemButton);
 
