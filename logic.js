@@ -76,7 +76,7 @@ function _shouldDisplayPlaceholder() {
             return item;
         }
     });
-    if (!activeItem && !window.showCompleted) {
+    if (!activeItem && !window.showCompleted) { // no active items and the list hides completed items
         return true;
     }
     return false;
