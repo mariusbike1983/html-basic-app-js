@@ -9,15 +9,15 @@
 </head>
 <body>
     <h1>Todo list</h1>
-    <div id="app">
+    <div id = "app">
         <div>
-            <input id="todo-text-input" onkeyup="inputChanged(event)"/>
-            <button id="button-add" class="type_2" onclick = addTodo()>Add</button>
-            <button id="button-remove-all" class="type_2" onclick = removeAll()>Remove all</button>
-            <button id="toggle-show" class="type_2" onclick = toggleShow()>Hide completed</button>
+            <input id = "todo-text-input"     class = "prompt" onkeyup = "inputChanged(event)"/>
+            <button id = "button-add"         class = "type_2" onclick = addTodo()>Add</button>
+            <button id = "button-remove-all"  class = "type_2" onclick = removeAll()>Remove all</button>
+            <button id = "toggle-show"        class = "type_2" onclick = toggleShow()>Hide completed</button>
         </div>
-        <div id="todo-list"></div>
+        <div id = "todo-list"></div>
     </div>
-    <script src="logic.js"></script>
+    <script src = "logic.js"></script>
 </body>
 </html>
