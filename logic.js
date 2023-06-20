@@ -118,11 +118,6 @@ function _getTodoList() {
     return document.getElementById("todo-list");
 }
 
-function _updateListPlaceholderText() {
-    const placeholder = document.getElementById('placeholder');
-    placeholder.style.display = _shouldDisplayPlaceholder() ? '' : 'none';
-}
-
 function _getInputElement() {
     return document.getElementById('todo-text-input');
 }
@@ -175,6 +170,11 @@ function _renderTodoItem(itemModel) {
     
     // insert the new ui item to the ui-todo-list
     _getTodoList().appendChild(item);
+}
+
+function _updateListPlaceholderText() {
+    const placeholder = document.getElementById('placeholder');
+    placeholder.style.display = _shouldDisplayPlaceholder() ? '' : 'none';
 }
 
 function _updateListUi() {
