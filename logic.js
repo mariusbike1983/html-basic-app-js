@@ -49,8 +49,8 @@ function deleteItem(itemId) {
     const ndx = window.todos.findIndex(function(todo) {
         return todo.id === itemId;
     });
-    const removedItem = window.todos.splice(ndx, 1)[0];
-    _getTodoList().removeChild(_findUiItem(removedItem.id));
+    window.todos.splice(ndx, 1)[0];
+    _getTodoList().removeChild(_findUiItem(itemId));
     _updateListUi();
 }
 
@@ -125,13 +125,15 @@ function _findUiItem(itemId) {
 
 function _renderPlaceholderText(text) {
     let placeholder = document.getElementById('placeholder');
-    if (!placeholder) {
-        placeholder = document.createElement('span');
-        placeholder.innerText = text;
-        placeholder.id = 'placeholder';
-        placeholder.style.display = 'none';
-        _getTodoList().appendChild(placeholder);
+    if (placeholder) {
+        // we already have the placeholder created
+        return;
     }
+    placeholder = document.createElement('span');
+    placeholder.innerText = text;
+    placeholder.id = 'placeholder';
+    placeholder.style.display = 'none';
+    _getTodoList().appendChild(placeholder);
 }
 
 function _renderTodoItem(itemModel) {
