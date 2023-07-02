@@ -10,7 +10,7 @@ window.onload = function() {
 }
 
 function inputChanged(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && _getInputElement().value.length > 0) {
         createNewTodoItem();
     }
     document.getElementById("button-add").disabled = _getInputElement().value.length === 0;
