@@ -40,11 +40,8 @@ function updateItemState(itemId) {
 }
 
 function deleteAllItems() {
-    const todolist = _getTodoList();
-    while(window.todos.length > 0) {
-        const itemModel = window.todos.pop();
-        todolist.removeChild(_findUiItem(itemModel.id));
-    }
+    window.todos.splice(0, window.todos.length);
+    _getTodoList().replaceChildren()
     _renderTodoList();
 }
 
@@ -127,11 +124,14 @@ function _findUiItem(itemId) {
 }
 
 function _renderPlaceholderText(text) {
-   const placeholder = document.createElement('span');
-   placeholder.innerText = text;
-   placeholder.id = 'placeholder';
-   placeholder.style.display = 'none';
-   _getTodoList().appendChild(placeholder);
+    let placeholder = document.getElementById('placeholder');
+    if (!placeholder) {
+        placeholder = document.createElement('span');
+        placeholder.innerText = text;
+        placeholder.id = 'placeholder';
+        placeholder.style.display = 'none';
+        _getTodoList().appendChild(placeholder);
+    }
 }
 
 function _renderTodoItem(itemModel) {
